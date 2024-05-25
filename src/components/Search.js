@@ -1,9 +1,13 @@
 import React from "react";
 
-function Search() {
+function Search({setSearchQuery, searchQuery}) {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("submitted");
+  }
+
+  function handleSearch(event){
+    setSearchQuery(event.target.value);
   }
 
   return (
@@ -12,8 +16,8 @@ function Search() {
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
+        value={searchQuery}
+        onChange={handleSearch}
       />
       <button type="submit">🔍</button>
     </form>
